@@ -1,0 +1,82 @@
+@echo off
+
+set openscad=".\openscad-2019.05\openscad.exe"
+set filename=PlanetariumMechanism_2020-10-23.scad
+
+set model_scale=100
+set slop_radial_tight=0.12
+set slop_radial_slide=0.16
+set slop_radial_loose=0.20
+set thickness_gear=5
+set thickness_bearing=2
+
+set commonOptions=-D model_scale=%model_scale% -D slop_radial_tight=%slop_radial_tight% -D slop_radial_slide=%slop_radial_slide% -D slop_radial_loose=%slop_radial_loose% -D thickness_gear=%thickness_gear% -D thickness_bearing=%thickness_bearing%
+
+
+rem /* [Render - Misc Objects] */
+%openscad% -o All_Pegs.stl -D Render_All_Pegs=true %commonOptions% %filename%
+%openscad% -o Idler_Axle.stl -D Render_Idler_Axle=true %commonOptions% %filename%
+%openscad% -o Planets.stl -D Render_Printable_Planets=true %commonOptions% %filename%
+
+rem /* [Render - Base and Stand] */
+%openscad% -o Base_Floor.stl -D Render_Floor=true %commonOptions% %filename%
+%openscad% -o Base_DriveGear.stl -D Render_MainDriveGear=true %commonOptions% %filename%
+%openscad% -o FingerWheel_Gear.stl -D Render_FingerDriveGear=true %commonOptions% %filename%
+%openscad% -o FingerWheel_Axle.stl -D Render_FingerWheelAxle=true %commonOptions% %filename%
+%openscad% -o FingerWheel_SupportBracket.stl -D Render_FingerWheelSupport=true %commonOptions% %filename%
+%openscad% -o FingerWheel.stl -D Render_FingerWheel=true %commonOptions% %filename%
+%openscad% -o Base_Housing.stl -D Render_Housing=true %commonOptions% %filename%
+%openscad% -o Main_Axle.stl -D Render_Main_Axle=true %commonOptions% %filename%
+%openscad% -o Mercury_Axle.stl -D Render_Mercury_Axle=true %commonOptions% %filename%
+
+rem /* [Render - Saturn] */
+%openscad% -o Saturn_PlanetArm.stl -D Render_SaturnPlanetArm=true %commonOptions% %filename%
+%openscad% -o Saturn_GearIn106T.stl -D Render_SaturnGearIn106T=true %commonOptions% %filename%
+%openscad% -o Saturn_GearIn106T_Bearing.stl -D Render_BearingOnSaturnGearIn106T=true %commonOptions% %filename%
+
+rem /* [Render - Jupiter] */
+%openscad% -o Jupiter_IdlerArm.stl -D Render_JupiterIdlerArm=true %commonOptions% %filename%
+%openscad% -o Jupiter_GearOut85T.stl -D Render_JupiterGearOut85T=true %commonOptions% %filename%
+%openscad% -o Jupiter_PlanetArm.stl -D Render_JupiterPlanetArm=true %commonOptions% %filename%
+%openscad% -o Jupiter_GearIn106T.stl -D Render_JupiterGearIn106T=true %commonOptions% %filename%
+%openscad% -o Jupiter_IdlerIn44T.stl -D Render_JupiterIdlerIn44T=true %commonOptions% %filename%
+%openscad% -o Jupiter_IdlerOut22T.stl -D Render_JupiterIdlerOut22T=true %commonOptions% %filename%
+
+rem /* [Render - Mars] */
+%openscad% -o Mars_IdlerArm.stl -D Render_MarsIdlerArm=true %commonOptions% %filename%
+%openscad% -o Mars_GearOut56T.stl -D Render_MarsGearOut56T=true %commonOptions% %filename%
+%openscad% -o Mars_PlanetArm.stl -D Render_MarsPlanetArm=true %commonOptions% %filename%
+%openscad% -o Mars_GearIn106T.stl -D Render_MarsGearIn106T=true %commonOptions% %filename%
+%openscad% -o Mars_IdlerIn73T.stl -D Render_MarsIdlerIn73T=true %commonOptions% %filename%
+%openscad% -o Mars_IdlerOut22T.stl -D Render_MarsIdlerOut22T=true %commonOptions% %filename%
+
+rem /* [Render - Earth] */
+%openscad% -o Earth_IdlerArm.stl -D Render_EarthIdlerArm=true %commonOptions% %filename%
+%openscad% -o Earth_GearOut92T.stl -D Render_EarthGearOut92=true %commonOptions% %filename%
+%openscad% -o Earth_PlanetArm.stl -D Render_EarthPlanetArm=true %commonOptions% %filename%
+%openscad% -o Earth_GearIn47T.stl -D Render_EarthGearIn47T=true %commonOptions% %filename%
+%openscad% -o Earth_IdlerIn36T.stl -D Render_EarthIdlerIn36T=true %commonOptions% %filename%
+%openscad% -o Earth_IdlerOut22T.stl -D Render_EarthIdlerOut22T=true %commonOptions% %filename%
+
+rem /* [Render - Moon] */
+%openscad% -o Moon_Gear11T.stl -D Render_MoonGear11T=true %commonOptions% %filename%
+%openscad% -o Moon_PlanetArm.stl -D Render_MoonArm=true %commonOptions% %filename%
+
+
+rem /* [Render - Calendar] */
+%openscad% -o Calendar_Gear.stl -D Render_CalendarGear=true %commonOptions% %filename%
+%openscad% -o Calendar_IdlerIn31T.stl -D Render_CalendarIdlerIn31T=true %commonOptions% %filename%
+%openscad% -o Calendar_IdlerOut23T.stl -D Render_CalendarIdlerOut23T=true %commonOptions% %filename%
+
+rem /* [Render - Venus] */
+%openscad% -o Venus_GearOut39T.stl -D Render_VenusGearOut39T=true %commonOptions% %filename%
+%openscad% -o Venus_PlanetArm.stl -D Render_VenusPlanetArm=true %commonOptions% %filename%
+%openscad% -o Venus_GearIn42T.stl -D Render_VenusGearIn42T=true %commonOptions% %filename%
+
+rem /* [Render - Mercury] */
+%openscad% -o Mercury_IdlerArm.stl -D Render_MercuryIdlerArm=true %commonOptions% %filename%
+%openscad% -o Mercury_GearOut28T.stl -D Render_MercuryGearOut28T=true %commonOptions% %filename%
+%openscad% -o Mercury_PlanetArm.stl -D Render_MercuryPlanetArm=true %commonOptions% %filename%
+%openscad% -o Mercury_Cap.stl -D Render_MercuryCap=true %commonOptions% %filename%
+%openscad% -o Mercury_IdlerIn33T.stl -D Render_MercuryIdlerIn33T=true %commonOptions% %filename%
+%openscad% -o Mercury_IdlerOut19T.stl -D Render_MercuryIdlerOut19T=true %commonOptions% %filename%
