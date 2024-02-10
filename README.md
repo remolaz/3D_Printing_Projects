@@ -7,3 +7,8 @@ Here you can find some of the D printing projects I realized:
 - Moving Eye Ball
 
 - Planetarium
+
+![](planetarium.jpg)
+![](3d_objects.jpg)
+![](eye_ball.jpg)
+![](echo_flex.jpg)
